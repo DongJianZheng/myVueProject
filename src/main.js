@@ -6,7 +6,7 @@ import Element from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 // 设置反向代理，前端请求默认发送到 http://localhost:8443/api
 var axios=require('axios')
-axios.defaults.baseURL='http://localhost:8443/api'
+axios.defaults.baseURL='http://127.0.0.1/self'
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 /*作用是阻止vue 在启动时生成生产提示。*/
@@ -35,6 +35,19 @@ const router = new VueRouter({
     {
       path: '/login',
       component: logincomponent
+    },{
+      path:'/index',
+      component: () => import('./component/index.vue'),
+      children:[//二级路由
+        {
+          path:'/one',
+          component:() => import('./component/one.vue')
+        },
+        {
+          path:'/two',
+          component:() => import('./component/two.vue')
+        }
+      ]
     }
   ]
 })

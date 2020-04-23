@@ -3,7 +3,7 @@
     <el-form class="login-container" label-position="left" label-width="0px">
         <h3 class="login_title">系统登录</h3>
         <el-form-item>
-            <el-input type="text" v-model="loginForm.username" auto-complete="off" placeholder="账号"></el-input>
+            <el-input type="text" v-model="loginForm.userName" auto-complete="off" placeholder="账号"></el-input>
         </el-form-item>
 
         <el-form-item>
@@ -24,7 +24,7 @@
         data() {
             return {
                 loginForm: {
-                    username: '',
+                    userName: '',
                     password: ''
                 },
                 responseResult: []
@@ -32,11 +32,13 @@
         },
         methods: {
             login() {
+                console.log(this.$axios.defaults);
+                this.$axios.defaults.headers.post["Content-Type"] ="application/json;";
                 this.$axios
                     .post('/login', {
-                        username: this.loginForm.username,
+                        userName: this.loginForm.userName,
                         password: this.loginForm.password
-                    })
+                    },)
                     .then(successResponse => {
                         if (successResponse.data.code === 200) {
                             this.$router.replace({path: '/index'})
