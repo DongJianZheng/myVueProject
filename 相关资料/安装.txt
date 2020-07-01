@@ -1,6 +1,7 @@
 npm cache clean -f
 npm install -g n
 npm install -g n --force
+npm install webpack -g
 npm install vue -g
 vue@2.6.11
 npm install -g @vue/cli
