@@ -35,19 +35,6 @@ const router = new VueRouter({
     {
       path: '/login',
       component: logincomponent
-    },{
-      path:'/index',
-      component: () => import('./component/index.vue'),
-      children:[//二级路由
-        {
-          path:'/one',
-          component:() => import('./component/one.vue')
-        },
-        {
-          path:'/two',
-          component:() => import('./component/two.vue')
-        }
-      ]
     }
   ]
 })
