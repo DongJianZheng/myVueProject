@@ -16,7 +16,7 @@
   "dependencies": {
     "@antv/data-set": "^0.8.3",
     "@antv/g2": "^3.0.4-beta.2",
-    "axios": "^0.17.1",
+    "axios": "^0.18.1",
     "china-geojson": "^1.0.0",
     "countup": "^1.8.2",
     "element-ui": "^1.0.0-rc.5",
